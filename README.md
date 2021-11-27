@@ -1,1 +1,1 @@
-# Materialien-f-r-Integration-von-historischer-lexikalischer-Semantik-und-Ontologien-in-den-DH-
+# Materialien-Integration-von-historischer-lexikalischer-Semantik-und-Ontologien-in-den-DH
