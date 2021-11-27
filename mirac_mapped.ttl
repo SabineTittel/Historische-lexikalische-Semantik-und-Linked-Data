@@ -1,0 +1,64 @@
+@prefix : <https://deaf-server.adw.uni-heidelberg.de/lemme/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dbr: <https://dbpedia.org/resource/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix deaf: <https://deaf-server.adw.uni-heidelberg.de#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix lexicog: <http://www.w3.org/ns/lemon/lexicog#> .
+@prefix lexinfo: <https://lexinfo.net/ontology/3.0/lexinfo#> .
+@prefix lexvo: <http://lexvo.org/id/iso639-3/> .
+@prefix lime: <http://www.w3.org/ns/lemon/lime#> .
+@prefix olia: <http://purl.org/olia/olia.owl#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+deaf:DEAF a lime:Lexicon,
+        ontolex:Lexicon ;
+    cc:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    dct:creator [ foaf:homepage <https://hadw-bw.de/forschung/forschungsstelle/dictionnaire-etymologique-de-lancien-francais-deaf> ;
+            foaf:name "Lisa Šumski"@de ] ;
+    dct:date "2021-10-14"^^xsd:date ;
+    dct:publisher [ foaf:familyName "Tittel"@de ;
+            foaf:givenName "Sabine"@de ;
+            foaf:homepage <https://hadw-bw.de/forschung/forschungsstelle/dictionnaire-etymologique-de-lancien-francais-deaf> ] ;
+    dct:rights "CC-Zero" ;
+    lime:entry :mirac ;
+    lime:language lexvo:fro .
+
+deaf:DEAF_lexresource a lexicog:LexicographicResource ;
+    dct:language lexvo:fro ;
+    lexicog:entry deaf:mirac_entry .
+
+deaf:idem a rdf:Property .
+
+deaf:mirac_entity a lexicog:LexicographicComponent ;
+    lexicog:describes :mirac .
+
+deaf:mirac_entry a lexicog:Entry ;
+    rdfs:member deaf:mirac_entity .
+
+:mirac_form_mirac a ontolex:Form ;
+    ontolex:writtenRep "mirac"@fro .
+
+:mirac a ontolex:LexicalEntry,
+        ontolex:Word ;
+    ontolex:canonicalForm :mirac_form_mirac ;
+    ontolex:evokes :mirac_sense1_lexConcept ;
+    ontolex:sense :mirac_sense1 ;
+    lexinfo:gender lexinfo:masculine ;
+    lexinfo:partOfSpeech lexinfo:Noun,
+        "m."@fr .
+
+:mirac_sense1 a ontolex:LexicalSense ;
+    dct:subject dbr:Medicine ;
+    olia:hasRegister olia:TechnicalRegister ;
+    rdfs:comment "DEAF article mirac / main sense number 1"@en ;
+    ontolex:isLexicalizedSenseOf :mirac_sense1_lexConcept .
+
+:mirac_sense1_lexConcept a ontolex:LexicalConcept ;
+    skos:definition "paroi abdominale"@fr ;
+    ontolex:isConceptOf dbr:Abdomen ;
+    ontolex:lexicalizedSense :mirac_sense1 .
