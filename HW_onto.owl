@@ -1,0 +1,145 @@
+<rdf:RDF xmlns="https://example.org/hallig-wartburg-ontology#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:dct="http://purl.org/dc/terms/"
+  xmlns:vann="http://purl.org/vocab/vann/"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:skos-thes="http://www.w3.org/2004/02/skos/extensions#"
+  xmlns:base="http://example.org/hallig-wartburg-ontology#">
+<owl:Ontology rdf:about="https://example.org/hallig-wartburg-ontology#">
+ <dct:title xml:lang="en">Hallig-Wartburg Ontology</dct:title>
+ <vann:preferredNamespacePrefix>hw</vann:preferredNamespacePrefix>
+ <dct:description xml:lang="en">
+	Ontology is based on the so-called Hallig-Warburg: Rudolf Hallig and Walther von Wartburg, Begriffssystem als Grundlage für die Lexikographie / Système raisonné des concepts pour servir de base à la lexicographie, Berlin (Akademie-Verlag), [1952] 1963; Hallig-Wartburg is a conceptual scheme used in historical linguistic resources.</dct:description>
+ <vann:preferredNamespaceUri rdf:resource="https://example.org/hallig-wartburg-ontology#"/>
+ <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</owl:versionInfo>
+</owl:Ontology>
+
+<!--  datatype properties  -->
+<owl:DatatypeProperty rdf:about="https://lod.academy/hw-onto/ns/hw#hwIdentificationScheme">
+  <rdfs:label xml:lang="en">HW Identification Scheme</rdfs:label>
+  <rdfs:comment xml:lang="en">Identification scheme for Hallig-Wartburg's concepts</rdfs:comment>
+  <rdfs:range>
+    <rdfs:Datatype>
+    <!-- for all datatypes, see lod.academy -->
+     <owl:oneOf>("A"^^xsd:string
+     "C"^^xsd:string
+     "B"^^xsd:string
+     "B I k 1 cc 1"^^xsd:string
+     "B I k 1 cc 2"^^xsd:string
+     "B IV f 2 cc"^^xsd:string
+     "B IV f 2 cc 2"^^xsd:string
+     "B IV f 2 cc"^^xsd:string)</owl:oneOf>
+    </rdfs:Datatype>
+  </rdfs:range>
+</owl:DatatypeProperty>
+
+<!-- object properties -->
+<owl:SymmetricProperty rdf:about="https://example.org/hallig-wartburg-ontology#hasModernCounterpart">
+   <rdfs:label xml:lang="en">has modern counterpart</rdfs:label>
+   <rdfs:comment xml:lang="en">The property 'has modern counterpart' expresses the relation from a historicised class to a modern counterpart which is not an equivalent</rdfs:comment>
+</owl:SymmetricProperty>
+
+<!--  classes  -->
+<owl:Class rdf:about="https://example.org/hallig-wartburg-ontology#HistCat">
+   <rdfs:label xml:lang="en">historicised concept</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://example.org/hallig-wartburg-ontology#LA_VIANDE">
+  <skos:scopeNote xml:lang="fr">La viande</skos:scopeNote>
+  <skos:notation rdf:datatype="https://lod.academy/hw-onto/ns/hw#hwIdentificationScheme">B I k 1 cc 1</skos:notation>
+  <rdfs:label xml:lang="fr">La viande</rdfs:label>
+  <rdfs:label xml:lang="en">Meat</rdfs:label>
+  <rdfs:label xml:lang="de">Fleisch</rdfs:label>
+  <rdfs:label xml:lang="it">La Carne</rdfs:label>
+  <rdfs:subClassOf rdf:resource="https://example.org/hallig-wartburg-ontology#LES_ALIMENTS"/>
+</owl:Class>
+
+<owl:Class rdf:about="https://example.org/hallig-wartburg-ontology#LE_PAIN_LA_PATISSERIE">
+ <skos:scopeNote xml:lang="fr">Le pain, la pâtisserie</skos:scopeNote>
+ <skos:notation rdf:datatype="https://lod.academy/hw-onto/ns/hw#hwIdentificationScheme">B I k 1 cc 2</skos:notation>
+ <rdfs:label xml:lang="fr">Le pain, la pâtisserie</rdfs:label>
+ <rdfs:label xml:lang="en">Bread, pastry</rdfs:label>
+ <rdfs:label xml:lang="de">Brot, Gebäck</rdfs:label>
+ <rdfs:label xml:lang="it">Il pane, la pasticceria</rdfs:label>
+ <rdfs:subClassOf rdf:resource="https://example.org/hallig-wartburg-ontology#LES_ALIMENTS"/>
+</owl:Class>
+
+<owl:Class rdf:about="https://example.org/hallig-wartburg-ontology#JAMBON">
+ <skos:scopeNote xml:lang="fr">jambon</skos:scopeNote>
+ <rdfs:label xml:lang="fr">jambon</rdfs:label>
+ <rdfs:label xml:lang="en">ham</rdfs:label>
+ <rdfs:label xml:lang="de">Schinken</rdfs:label>
+ <rdfs:label xml:lang="it">prosciutto</rdfs:label>
+ <rdfs:subClassOf rdf:resource="https://example.org/hallig-wartburg-ontology#LA_VIANDE"/>
+</owl:Class>
+
+<owl:Class rdf:about="https://example.org/hallig-wartburg-ontology#CROUTE">
+ <skos:scopeNote xml:lang="fr">croûte</skos:scopeNote>
+ <rdfs:label xml:lang="fr">croûte</rdfs:label>
+ <rdfs:label xml:lang="en">crust</rdfs:label>
+ <rdfs:label xml:lang="de">Rinde</rdfs:label>
+ <rdfs:label xml:lang="it">crosta</rdfs:label>
+ <skos-thes:relatedPartOf rdf:resource="https://example.org/hallig-wartburg-ontology#LE_PAIN_LA_PATISSERIE"/>
+</owl:Class>
+
+<owl:Class rdf:about="https://example.org/hallig-wartburg-ontology#PATISSERIE">
+ <skos:scopeNote xml:lang="fr">pâtisserie</skos:scopeNote>
+ <rdfs:label xml:lang="fr">pâtisserie</rdfs:label>
+ <rdfs:label xml:lang="en">pastry</rdfs:label>
+ <rdfs:label xml:lang="de">Gebäck</rdfs:label>
+ <rdfs:label xml:lang="it">pasticceria</rdfs:label>
+ <rdfs:subClassOf rdf:resource="https://example.org/hallig-wartburg-ontology#LE_PAIN_LA_PATISSERIE"/>
+</owl:Class>
+
+<owl:Class rdf:about="https://example.org/hallig-wartburg-ontology#MIETTE">
+  <skos:scopeNote xml:lang="fr">miette</skos:scopeNote>
+  <rdfs:label xml:lang="fr">miette</rdfs:label>
+  <rdfs:label xml:lang="en">crum</rdfs:label>
+  <rdfs:label xml:lang="de">Krümel</rdfs:label>
+  <rdfs:label xml:lang="it">briciola</rdfs:label>
+  <skos-thes:relatedPartOf rdf:resource="https://example.org/hallig-wartburg-ontology#LE_PAIN_LA_PATISSERIE"/>
+</owl:Class>
+
+<owl:Class rdf:about="https://example.org/hallig-wartburg-ontology#LES_NARINES">
+  <skos:scopeNote xml:lang="fr">les narines</skos:scopeNote>
+  <rdfs:label xml:lang="fr">les narines</rdfs:label>
+  <rdfs:label xml:lang="en">nostrils</rdfs:label>
+  <rdfs:label xml:lang="de">Nasenlöcher</rdfs:label>
+  <rdfs:label xml:lang="it">narice</rdfs:label>
+  <skos-thes:broaderPartitive rdf:resource="https://example.org/hallig-wartburg-ontology#LE_CORPS_ET_LES_MEMBRES"/>
+</owl:Class>
+
+<owl:Class rdf:about="https://example.org/hallig-wartburg-ontology#LES_ARMES_ET_LES_ARMURES">
+  <skos:notation rdf:datatype="https://lod.academy/hw-onto/ns/hw#hwIdentificationScheme">B IV f 2 cc</skos:notation>
+  <skos:scopeNote xml:lang="fr">les armes et les armures</skos:scopeNote>
+  <rdfs:label xml:lang="fr">les armes et les armures</rdfs:label>
+  <rdfs:label xml:lang="en">weapons and armour</rdfs:label>
+  <rdfs:label xml:lang="de">Waffen und Rüstung</rdfs:label>
+  <rdfs:label xml:lang="it">armas e armamento</rdfs:label>
+  <rdfs:subClassOf rdf:resource="https://example.org/hallig-wartburg-ontology#L_ARMEE_DE_TERRE"/>
+</owl:Class>
+
+<owl:Class rdf:about="https://example.org/hallig-wartburg-ontology#LES_ARMES_ANCIENNES">
+  <skos:notation rdf:datatype="https://lod.academy/hw-onto/ns/hw#hwIdentificationScheme">B IV f 2 cc 2</skos:notation>
+  <skos:scopeNote xml:lang="fr">les armes anciennes</skos:scopeNote>
+  <rdfs:label xml:lang="fr">les armes anciennes</rdfs:label>
+  <rdfs:label xml:lang="en">ancient weapons</rdfs:label>
+  <rdfs:label xml:lang="de">antike Waffen</rdfs:label>
+  <rdfs:label xml:lang="it">armas anticas</rdfs:label>
+  <rdfs:subClassOf rdf:resource="https://example.org/hallig-wartburg-ontology#HistCat"/>
+  <base:hasModernCounterpart rdf:resource="https://example.org/hallig-wartburg-ontology#LES_ARMES_MODERNES"/>
+  <rdfs:subClassOf rdf:resource="https://example.org/hallig-wartburg-ontology#LES_ARMES_ET_LES_ARMURES"/>
+</owl:Class>
+
+<owl:Class rdf:about="https://example.org/hallig-wartburg-ontology#LES_ARMES_MODERNES">
+  <skos:notation rdf:datatype="https://lod.academy/hw-onto/ns/hw#hwIdentificationScheme">B IV f 2 cc 1</skos:notation>
+  <skos:scopeNote xml:lang="fr">les armes modernes</skos:scopeNote>
+  <rdfs:label xml:lang="fr">les armes modernes</rdfs:label>
+  <rdfs:label xml:lang="en">modern weapons</rdfs:label>
+  <rdfs:label xml:lang="de">moderne Waffen</rdfs:label>
+  <rdfs:label xml:lang="it">armas modernas</rdfs:label>
+  <rdfs:subClassOf rdf:resource="https://example.org/hallig-wartburg-ontology#LES_ARMES_ET_LES_ARMURES"/>
+</owl:Class>
+</rdf:RDF>
