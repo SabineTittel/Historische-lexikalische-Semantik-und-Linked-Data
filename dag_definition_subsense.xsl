@@ -52,8 +52,7 @@ deaf:error_in_the_main-lemma-sub-lemma_structure</xsl:otherwise>
 </xsl:when>
 <xsl:otherwise>deaf:error_in_the_main-lemma-sub-lemma_structure</xsl:otherwise>
 </xsl:choose>_sense<xsl:number count="part/senses/sense | part/senses/sense/sense" level="multiple" format="1.a"/>_lexConcept a ontolex:LexicalConcept ;
-  <xsl:if test="../child::m:cat-onomas"> ,
-  hw:<xsl:call-template name="hw_extern"/></xsl:if> ;
+  <xsl:if test="../child::m:cat-onomas">ontolex:isConceptOf hw:<xsl:call-template name="hw_extern"/></xsl:if> ;
   skos:definition "<xsl:apply-templates select="." mode="italics"/>"@fr ;
   ontolex:lexicalizedSense <xsl:choose><xsl:when test="../../../../..[@type='mainpart']">:<xsl:value-of select="//part[@type='mainpart']/title/lemma"/></xsl:when>
 <xsl:when test="../../../../..[@type='subpart']">:<xsl:value-of select="../../../../../child::title/lemma"/>
