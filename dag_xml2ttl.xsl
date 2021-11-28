@@ -49,7 +49,6 @@
   <xsl:text disable-output-escaping="yes"><![CDATA[@prefix :         <https://dag.linguistik.uzh.ch/lemme/> .
 @prefix deaf:     <http://deaf-server.adw.uni-heidelberg.de#> .
 @prefix dag:      <https://dag.linguistik.uzh.ch/#> .
-@prefix deaf:     <https://deaf-server.adw.uni-heidelberg.de#> .
 @prefix ontolex:  <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
 @prefix synsem:   <http://www.w3.org/ns/lemon/synsem#> .
