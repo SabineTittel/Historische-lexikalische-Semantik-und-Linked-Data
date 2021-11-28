@@ -1,0 +1,233 @@
+@prefix :         <https://dag.linguistik.uzh.ch/lemme/> .
+@prefix deaf:     <http://deaf-server.adw.uni-heidelberg.de#> .
+@prefix dag:      <https://dag.linguistik.uzh.ch/#> .
+@prefix deaf:     <https://deaf-server.adw.uni-heidelberg.de#> .
+@prefix ontolex:  <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix synsem:   <http://www.w3.org/ns/lemon/synsem#> .
+@prefix dbr:      <https://dbpedia.org/resource/> .
+@prefix dct:      <http://purl.org/dc/terms/> .
+@prefix cc:       <http://creativecommons.org/ns#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix lexinfo:  <https://lexinfo.net/ontology/3.0/lexinfo#> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix olia:     <http://purl.org/olia/olia.owl#> .
+@prefix decomp:   <http://www.w3.org/ns/lemon/decomp#> .
+@prefix lemonety: <http://lari-datasets.ilc.cnr.it/lemonEty#> .
+@prefix lexvo:    <http://lexvo.org/id/iso639-3/> .
+@prefix lime:     <http://www.w3.org/ns/lemon/lime#> .
+@prefix lexicog:  <http://www.w3.org/ns/lemon/lexicog#> .
+@prefix hw:       <http://example.org/hallig-wartburg-ontology#> .
+@prefix semshift: <http://www.deaf-page.de/ns/semshift#> .
+
+# semantic specification property
+deaf:idem rdf:type rdf:Property .
+
+# metadata annotation
+dag:DAG a ontolex:Lexicon , lime:Lexicon;
+  lime:language lexvo:pro ;
+  dct:creator
+  [
+	foaf:name "Martin Glessgen"@de ;
+	foaf:homepage <https://hadw-bw.de/forschung/forschungsstelle/dictionnaire-onomasiologique-de-lancien-gascon-dag>
+	] ;
+  dct:publisher
+  [
+  foaf:familyName "Tittel"@de ;
+  foaf:givenName "Sabine"@de ;
+  foaf:homepage <https://hadw-bw.de/forschung/forschungsstelle/dictionnaire-etymologique-de-lancien-francais-deaf>
+  ] ;
+  dct:rights "CC-Zero" ;
+  cc:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+  dct:date "2021-11-28"^^xsd:date .
+
+# ----------------------------------------------------
+# --- main lemma -------------------------------------
+# ----------------------------------------------------
+# --- lexical entry ----------------------------------
+:austor a ontolex:LexicalEntry ,
+	ontolex:Word ;
+  lexinfo:partOfSpeech "m."@fr ,
+  lexinfo:Noun ;
+  lexinfo:gender lexinfo:masculine ;
+  ontolex:canonicalForm :austor_form_austor .
+:austor_form_austor a ontolex:Form ;
+	ontolex:writtenRep "austor"@oc-x-02q35735-241050--1500 .
+
+# --- relation main lemma / sub lemma ----------------
+
+dag:DAG_lexresource a lexicog:LexicographicResource ;
+  dct:language lexvo:pro ;
+  lexicog:entry dag:austor_entry .
+
+dag:austor_entry a lexicog:Entry ;
+  rdfs:member dag:austor_entity .
+
+dag:austor_entity a lexicog:LexicographicComponent ;
+  lexicog:describes :austor .
+
+dag:DAG lime:entry :austor .
+
+# --- etymology ----------------
+
+:austor lemonety:etymology dag:austor_etymology .
+dag:austor_etymology a lemonety:Etymology ;
+  lemonety:etymology dag:asterisk_acceptor_etymon .
+
+dag:asterisk_acceptor_etymon a lemonety:Etymon ;
+  lemonety:isEtymologyOf dag:austor_etymology ;
+  dct:language "latin"@fr , lexvo:lat ,
+  <https://id.loc.gov/vocabulary/iso639-1/la.html> ;
+  rdfs:label "*acceptor"@la .
+
+# --- autres langues -----------
+
+dag:accipiter_unspecified a ontolex:LexicalEntry ;
+  dct:language "unspecified language 'autres langues'"@en ;
+  rdfs:label "accipiter" ;
+  lemonety:isCognateOf <https://dag.linguistik.uzh.ch/lemme/austor#austor> .
+dag:ancipiter_la a ontolex:LexicalEntry ;
+  dct:language "latin"@fr , lexvo:lat ,
+  <https://id.loc.gov/vocabulary/iso639-1/la.html> ;
+  rdfs:label "ancipiter"@la ;
+  lemonety:isCognateOf <https://dag.linguistik.uzh.ch/lemme/austor#austor> .
+
+# --- graphical variants ----------------
+
+# graphical variant
+:austor ontolex:otherForm :austor_form_asturio .
+:austor_form_asturio a ontolex:Form ;
+	ontolex:writtenRep "asturio"@unassigned ;
+  dct:language "ancien gascon latinisé"@fr .
+
+# graphical variant
+:austor ontolex:otherForm :austor_form_austorem .
+:austor_form_austorem a ontolex:Form ;
+	ontolex:writtenRep "austorem"@unassigned ;
+  dct:language "ancien gascon latinisé"@fr .
+
+# graphical variant
+:austor ontolex:otherForm :austor_form_austorio .
+:austor_form_austorio a ontolex:Form ;
+	ontolex:writtenRep "austorio"@unassigned ;
+  dct:language "ancien gascon latinisé"@fr .
+
+# graphical variant
+:austor ontolex:otherForm :austor_form_austuro .
+:austor_form_austuro a ontolex:Form ;
+	ontolex:writtenRep "austuro"@unassigned ;
+  dct:language "ancien gascon latinisé"@fr .
+
+# graphical variant
+:austor ontolex:otherForm :austor_form_austurre .
+:austor_form_austurre a ontolex:Form ;
+	ontolex:writtenRep "austurre"@unassigned ;
+  dct:language "ancien gascon latinisé"@fr .
+
+# graphical variant
+:austor ontolex:otherForm :austor_form_osterio .
+:austor_form_osterio a ontolex:Form ;
+	ontolex:writtenRep "osterio"@unassigned ;
+  dct:language "ancien gascon latinisé"@fr .
+
+# graphical variant
+:austor ontolex:otherForm :austor_form_austur .
+:austor_form_austur a ontolex:Form ;
+	ontolex:writtenRep "austur"@oc-x-02q35735-241050--1500 .
+
+# graphical variant
+:austor ontolex:otherForm :austor_form_astour .
+:austor_form_astour a ontolex:Form ;
+	ontolex:writtenRep "astou(r)"@oc-x-02q35735-241050--1500 .
+
+# --- senses -----------------------------------------
+
+# main sense number 1.
+
+:austor ontolex:sense :austor_sense1 ;
+  ontolex:evokes :austor_sense1_lexConcept .
+
+:austor_sense1 a ontolex:LexicalSense ;
+  ontolex:isLexicalizedSenseOf :austor_sense1_lexConcept ;
+  rdfs:comment "DEAF article austor / main sense number 1"@en .
+
+:austor_sense1_lexConcept a ontolex:LexicalConcept ;
+  ontolex:isConceptOf hw:LES_OISEAUX_DE_PROIE ;
+  skos:definition "oiseau de chasse, autour (accipiter gentilis)"@fr ;
+  ontolex:lexicalizedSense :austor_sense1 .
+
+# sub sense number 1.a.
+
+# collocation "austor sauro"
+:austor_sauro a ontolex:LexicalEntry , ontolex:MultiwordExpression ;
+  decomp:subterm :austor ;
+  vartrans:lexicalRel lexinfo:collocation ;
+  rdfs:label "austor sauro"@fro ;
+  ontolex:canonicalForm :austor_sauro_form .
+
+:austor_sauro_form a ontolex:Form ;
+  ontolex:writtenRep "austor sauro"@fro .
+
+:austor_sauro ontolex:sense :austor_sense1.a ;
+  ontolex:evokes :austor_sense1.a_lexConcept .
+
+:austor_sense1.a a ontolex:LexicalSense ;
+  ontolex:isLexicalizedSenseOf :austor_sense1.a_lexConcept ;
+  rdfs:comment "DEAF article austor / sub sense number 1.a"@en .
+
+:austor_sense1.a_lexConcept a ontolex:LexicalConcept ;
+  ontolex:isConceptOf hw:LES_OISEAUX_DE_PROIE ;
+  skos:definition "jeune autour avant la première mue"@fr ;
+  ontolex:lexicalizedSense :austor_sense1.a .
+
+# ----------------------------------------------------
+# --- sub lemma --------------------------------------
+# ----------------------------------------------------
+# --- lexical entry ----------------------------------
+<https://dag.linguistik.uzh.ch/lemme/austor#austoron> a ontolex:LexicalEntry ,
+	ontolex:Word ;
+  lexinfo:partOfSpeech "m."@fr ,
+  lexinfo:Noun ;
+  lexinfo:gender lexinfo:masculine ;
+  rdfs:comment "developed form"@en .
+
+# --- relation main lemma / sub lemma ----------------
+
+dag:austor_entry rdfs:member dag:austoron_entity .
+dag:austoron_entity a lexicog:LexicographicComponent ;
+  lexicog:describes <https://dag.linguistik.uzh.ch/lemme/austor#austoron> .
+dag:DAG lime:entry <https://dag.linguistik.uzh.ch/lemme/austor#austoron> .
+
+# --- etymology ----------------
+
+# --- graphical variants ----------------
+
+# graphical variant
+<https://dag.linguistik.uzh.ch/lemme/austor#austoron> ontolex:otherForm :austoron_form_austurione .
+:austoron_form_austurione a ontolex:Form ;
+	ontolex:writtenRep "austurione"@unassigned ;
+  dct:language "ancien gascon latinisé"@fr .
+
+# graphical variant
+<https://dag.linguistik.uzh.ch/lemme/austor#austoron> ontolex:otherForm :austoron_form_austurone .
+:austoron_form_austurone a ontolex:Form ;
+	ontolex:writtenRep "austurone"@unassigned ;
+  dct:language "ancien gascon latinisé"@fr .
+
+# --- senses -----------------------------------------
+
+# main sense number 1.
+<https://dag.linguistik.uzh.ch/lemme/austor#austoron> ontolex:sense :austoron_sense1 ;
+  ontolex:evokes :austoron_sense1_lexConcept .
+
+:austoron_sense1 a ontolex:LexicalSense ;
+  ontolex:isLexicalizedSenseOf :austoron_sense1_lexConcept ;
+  rdfs:comment "DEAF article austoron / main sense number 1"@en .
+
+:austoron_sense1_lexConcept a ontolex:LexicalConcept ;
+  ontolex:isConceptOf hw:LES_OISEAUX_DE_PROIE ;
+  skos:definition "oiseau de chasse de la famille des accipitridae, év. aigle de Bonelli (Hieraaetus fasciatus) qui est répandu sur toute la Péninsule ibérique et qui ressemble par son plumage et son cri à l’autour, légèrement plus petit"@fr ;
+  ontolex:lexicalizedSense :austoron_sense1 .

@@ -1,0 +1,133 @@
+@prefix :         <https://dag.linguistik.uzh.ch/lemme/> .
+@prefix deaf:     <http://deaf-server.adw.uni-heidelberg.de#> .
+@prefix dag:      <https://dag.linguistik.uzh.ch/#> .
+@prefix deaf:     <https://deaf-server.adw.uni-heidelberg.de#> .
+@prefix ontolex:  <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix synsem:   <http://www.w3.org/ns/lemon/synsem#> .
+@prefix dbr:      <https://dbpedia.org/resource/> .
+@prefix dct:      <http://purl.org/dc/terms/> .
+@prefix cc:       <http://creativecommons.org/ns#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix lexinfo:  <https://lexinfo.net/ontology/3.0/lexinfo#> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix olia:     <http://purl.org/olia/olia.owl#> .
+@prefix decomp:   <http://www.w3.org/ns/lemon/decomp#> .
+@prefix lemonety: <http://lari-datasets.ilc.cnr.it/lemonEty#> .
+@prefix lexvo:    <http://lexvo.org/id/iso639-3/> .
+@prefix lime:     <http://www.w3.org/ns/lemon/lime#> .
+@prefix lexicog:  <http://www.w3.org/ns/lemon/lexicog#> .
+@prefix hw:       <http://example.org/hallig-wartburg-ontology#> .
+@prefix semshift: <http://www.deaf-page.de/ns/semshift#> .
+
+# semantic specification property
+deaf:idem rdf:type rdf:Property .
+
+# metadata annotation
+dag:DAG a ontolex:Lexicon , lime:Lexicon;
+  lime:language lexvo:pro ;
+  dct:creator
+  [
+	foaf:name "Petra Burckhardt"@de ;
+	foaf:homepage <https://hadw-bw.de/forschung/forschungsstelle/dictionnaire-onomasiologique-de-lancien-gascon-dag>
+	] ;
+  dct:publisher
+  [
+  foaf:familyName "Tittel"@de ;
+  foaf:givenName "Sabine"@de ;
+  foaf:homepage <https://hadw-bw.de/forschung/forschungsstelle/dictionnaire-etymologique-de-lancien-francais-deaf>
+  ] ;
+  dct:rights "CC-Zero" ;
+  cc:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+  dct:date "2021-11-28"^^xsd:date .
+
+# ----------------------------------------------------
+# --- main lemma -------------------------------------
+# ----------------------------------------------------
+# --- lexical entry ----------------------------------
+:acomiadar a ontolex:LexicalEntry ,
+	ontolex:Word ;
+  lexinfo:partOfSpeech "v.tr."@fr ,
+  lexinfo:verb ;
+  synsem:synBehavior
+    [ a synsem:SyntacticFrame , lexinfo:TransitiveFrame ] ;
+  ontolex:canonicalForm :acomiadar_form_acomiadar .
+:acomiadar_form_acomiadar a ontolex:Form ;
+	ontolex:writtenRep "acomiadar"@oc-x-02q35735-241050--1500 .
+
+# --- relation main lemma / sub lemma ----------------
+
+dag:DAG_lexresource a lexicog:LexicographicResource ;
+  dct:language lexvo:pro ;
+  lexicog:entry dag:acomiadar_entry .
+
+dag:acomiadar_entry a lexicog:Entry ;
+  rdfs:member dag:acomiadar_entity .
+
+dag:acomiadar_entity a lexicog:LexicographicComponent ;
+  lexicog:describes :acomiadar .
+
+dag:DAG lime:entry :acomiadar .
+
+# --- etymology ----------------
+
+:acomiadar lemonety:etymology dag:acomiadar_etymology .
+dag:acomiadar_etymology a lemonety:Etymology ;
+  lemonety:etymology dag:commeatus_etymon .
+
+dag:commeatus_etymon a lemonety:Etymon ;
+  lemonety:isEtymologyOf dag:acomiadar_etymology ;
+  dct:language "latin"@fr , lexvo:lat ,
+  <https://id.loc.gov/vocabulary/iso639-1/la.html> ;
+  rdfs:label "commeatus"@la .
+
+# --- autres langues -----------
+
+dag:acomïadar_unspecified a ontolex:LexicalEntry ;
+  dct:language "unspecified language 'autres langues'"@en ;
+  rdfs:label "acomïadar" ;
+  lemonety:isCognateOf :acomiadar .
+dag:acomiadar_unspecified a ontolex:LexicalEntry ;
+  dct:language "unspecified language 'autres langues'"@en ;
+  rdfs:label "acomiadar" ;
+  lemonety:isCognateOf <https://dag.linguistik.uzh.ch/lemme/acomiadar#acomiadar> .
+
+# --- graphical variants ----------------
+
+# graphical variant
+:acomiadar ontolex:otherForm :acomiadar_form_acumiadar .
+:acomiadar_form_acumiadar a ontolex:Form ;
+	ontolex:writtenRep "acumiadar"@oc-x-02q35735-241050--1500 .
+
+# --- senses -----------------------------------------
+
+# main sense number 1.
+
+:acomiadar ontolex:sense :acomiadar_sense1 ;
+  ontolex:evokes :acomiadar_sense1_lexConcept .
+
+:acomiadar_sense1 a ontolex:LexicalSense ;
+  ontolex:isLexicalizedSenseOf :acomiadar_sense1_lexConcept ;
+  rdfs:comment "DEAF article acomiadar / main sense number 1"@en .
+
+:acomiadar_sense1_lexConcept a ontolex:LexicalConcept ;
+  ontolex:isConceptOf hw:LE_GOUVERNEMENT_L_ADMINISTRATION ;
+  skos:definition "donner congé, renvoyer"@fr ;
+  ontolex:lexicalizedSense :acomiadar_sense1 .
+
+# main sense number 2.
+
+:acomiadar ontolex:sense :acomiadar_sense2 ;
+  ontolex:evokes :acomiadar_sense2_lexConcept .
+
+:acomiadar_sense2 a ontolex:LexicalSense ;
+  ontolex:isLexicalizedSenseOf :acomiadar_sense2_lexConcept ;
+  rdfs:comment "DEAF article acomiadar / main sense number 2"@en .
+
+:acomiadar_sense2_lexConcept a ontolex:LexicalConcept ;
+  ontolex:isConceptOf hw:LA_PROPRIETE ;
+  skos:definition "renvoyer un locataire"@fr ;
+  ontolex:lexicalizedSense :acomiadar_sense2 .

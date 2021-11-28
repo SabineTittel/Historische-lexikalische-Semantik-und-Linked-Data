@@ -1,0 +1,166 @@
+@prefix :         <https://dag.linguistik.uzh.ch/lemme/> .
+@prefix deaf:     <http://deaf-server.adw.uni-heidelberg.de#> .
+@prefix dag:      <https://dag.linguistik.uzh.ch/#> .
+@prefix deaf:     <https://deaf-server.adw.uni-heidelberg.de#> .
+@prefix ontolex:  <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix synsem:   <http://www.w3.org/ns/lemon/synsem#> .
+@prefix dbr:      <https://dbpedia.org/resource/> .
+@prefix dct:      <http://purl.org/dc/terms/> .
+@prefix cc:       <http://creativecommons.org/ns#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix lexinfo:  <https://lexinfo.net/ontology/3.0/lexinfo#> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix olia:     <http://purl.org/olia/olia.owl#> .
+@prefix decomp:   <http://www.w3.org/ns/lemon/decomp#> .
+@prefix lemonety: <http://lari-datasets.ilc.cnr.it/lemonEty#> .
+@prefix lexvo:    <http://lexvo.org/id/iso639-3/> .
+@prefix lime:     <http://www.w3.org/ns/lemon/lime#> .
+@prefix lexicog:  <http://www.w3.org/ns/lemon/lexicog#> .
+@prefix hw:       <http://example.org/hallig-wartburg-ontology#> .
+@prefix semshift: <http://www.deaf-page.de/ns/semshift#> .
+
+# semantic specification property
+deaf:idem rdf:type rdf:Property .
+
+# metadata annotation
+dag:DAG a ontolex:Lexicon , lime:Lexicon;
+  lime:language lexvo:pro ;
+  dct:creator
+  [
+	foaf:name "Petra Burckhardt"@de ;
+	foaf:homepage <https://hadw-bw.de/forschung/forschungsstelle/dictionnaire-onomasiologique-de-lancien-gascon-dag>
+	] ;
+  dct:publisher
+  [
+  foaf:familyName "Tittel"@de ;
+  foaf:givenName "Sabine"@de ;
+  foaf:homepage <https://hadw-bw.de/forschung/forschungsstelle/dictionnaire-etymologique-de-lancien-francais-deaf>
+  ] ;
+  dct:rights "CC-Zero" ;
+  cc:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+  dct:date "2021-11-28"^^xsd:date .
+
+# ----------------------------------------------------
+# --- main lemma -------------------------------------
+# ----------------------------------------------------
+# --- lexical entry ----------------------------------
+:accident a ontolex:LexicalEntry ,
+	ontolex:Word ;
+  lexinfo:partOfSpeech "m."@fr ,
+  lexinfo:Noun ;
+  lexinfo:gender lexinfo:masculine ;
+  ontolex:canonicalForm :accident_form_accident .
+:accident_form_accident a ontolex:Form ;
+	ontolex:writtenRep "accident"@oc-x-02q35735-241050--1500 .
+
+# --- relation main lemma / sub lemma ----------------
+
+dag:DAG_lexresource a lexicog:LexicographicResource ;
+  dct:language lexvo:pro ;
+  lexicog:entry dag:accident_entry .
+
+dag:accident_entry a lexicog:Entry ;
+  rdfs:member dag:accident_entity .
+
+dag:accident_entity a lexicog:LexicographicComponent ;
+  lexicog:describes :accident .
+
+dag:DAG lime:entry :accident .
+
+# --- etymology ----------------
+
+:accident lemonety:etymology dag:accident_etymology .
+dag:accident_etymology a lemonety:Etymology ;
+  lemonety:etymology dag:accidens_etymon .
+
+dag:accidens_etymon a lemonety:Etymon ;
+  lemonety:isEtymologyOf dag:accident_etymology ;
+  dct:language "latin"@fr , lexvo:lat ,
+  <https://id.loc.gov/vocabulary/iso639-1/la.html> ;
+  rdfs:label "accidens"@la .
+
+# --- autres langues -----------
+
+dag:acciden_unspecified a ontolex:LexicalEntry ;
+  dct:language "unspecified language 'autres langues'"@en ;
+  rdfs:label "acciden" ;
+  lemonety:isCognateOf <https://dag.linguistik.uzh.ch/lemme/accident#accident> .
+
+# --- graphical variants ----------------
+
+# graphical variant
+:accident ontolex:otherForm :accident_form_acciden .
+:accident_form_acciden a ontolex:Form ;
+	ontolex:writtenRep "acciden"@oc-x-02q35735-241050--1500 .
+
+# --- senses -----------------------------------------
+
+# main sense number 1.
+
+:accident ontolex:sense :accident_sense1 ;
+  ontolex:evokes :accident_sense1_lexConcept .
+
+:accident_sense1 a ontolex:LexicalSense ;
+  ontolex:isLexicalizedSenseOf :accident_sense1_lexConcept ;
+  rdfs:comment "DEAF article accident / main sense number 1"@en .
+
+:accident_sense1_lexConcept a ontolex:LexicalConcept ;
+  ontolex:isConceptOf hw:BONHEUR_-_MALHEUR ;
+  skos:definition "ce qui arrive fortuitement, en bien ou en mal"@fr ;
+  ontolex:lexicalizedSense :accident_sense1 .
+
+# sub sense number 1.a.
+
+# locution "per accident"
+:per_accident a ontolex:LexicalEntry , ontolex:MultiwordExpression ;
+  decomp:subterm :accident ;
+  rdfs:label "per accident"@fro ;
+  lexinfo:termType lexinfo:phraseologicalUnit ;
+  lexinfo:partOfSpeech lexinfo:Adverb ,
+  "locution adverbiale"@fr , "loc. adv."@fr ;
+  ontolex:canonicalForm :per_accident_form .
+
+:per_accident_form a ontolex:Form ;
+  ontolex:writtenRep "per accident"@fro .
+
+:per_accident ontolex:sense :accident_sense1.a ;
+  ontolex:evokes :accident_sense1.a_lexConcept .
+
+:accident_sense1.a a ontolex:LexicalSense ;
+  ontolex:isLexicalizedSenseOf :accident_sense1.a_lexConcept ;
+  rdfs:comment "DEAF article accident / sub sense number 1.a"@en .
+
+:accident_sense1.a_lexConcept a ontolex:LexicalConcept ;
+  ontolex:isConceptOf hw:L_EXISTENCE ;
+  skos:definition "accessoirement, accidentellement, occasionnellement, par hasard"@fr ;
+  ontolex:lexicalizedSense :accident_sense1.a .
+
+# sub sense number 1.b.
+
+# locution "mort per accident"
+:mort_per_accident a ontolex:LexicalEntry , ontolex:MultiwordExpression ;
+  decomp:subterm :accident ;
+  rdfs:label "mort per accident"@fro ;
+  lexinfo:termType lexinfo:phraseologicalUnit ;
+  lexinfo:partOfSpeech lexinfo:Noun ,
+  "locution nominale"@fr , "loc. subst."@fr ;
+  ontolex:canonicalForm :mort_per_accident_form .
+
+:mort_per_accident_form a ontolex:Form ;
+  ontolex:writtenRep "mort per accident"@fro .
+
+:mort_per_accident ontolex:sense :accident_sense1.b ;
+  ontolex:evokes :accident_sense1.b_lexConcept .
+
+:accident_sense1.b a ontolex:LexicalSense ;
+  ontolex:isLexicalizedSenseOf :accident_sense1.b_lexConcept ;
+  rdfs:comment "DEAF article accident / sub sense number 1.b"@en .
+
+:accident_sense1.b_lexConcept a ontolex:LexicalConcept ;
+  ontolex:isConceptOf hw:LA_VIE_HUMAINE_EN_GENERAL_LA_NAISSANCE_LES_AGES_DE_LA_VIE_LA_MORT ;
+  skos:definition "mort par un événement malheureux"@fr ;
+  ontolex:lexicalizedSense :accident_sense1.b .
