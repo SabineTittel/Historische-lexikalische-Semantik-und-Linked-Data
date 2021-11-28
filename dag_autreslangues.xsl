@@ -5,9 +5,9 @@
     xmlns="http://www.w3.org/1999/xhtml"
     xmlns:m="http://www.deaf-page.de/ns/markup"
 >
+<!-- last change: ST 2021-11-28 -->
 <!-- Sprache = ISO 639-1 code oder, wenn nicht existent, ISO 639-3 code (resp. ISO 639-2 code)
 wenn nichts von alledem: Abkürzung von DEAF/DAG umgesetzt als Zeichenkette ohne Punkte und Akzente, z.B. lgb. = lgb.; frq.rhén. = frqrhen -->
-<!-- last change: ST 2021-04-14 -->
 <xsl:template name="autreslangues_extern">
 <xsl:choose>
 <xsl:when test="./@language='afr.'">dag:<xsl:for-each select="tokenize(.,' ')">
@@ -19,8 +19,8 @@ wenn nichts von alledem: Abkürzung von DEAF/DAG umgesetzt als Zeichenkette ohne
 <xsl:when test="./@language='prérom.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_prerom a ontolex:LexicalEntry ;
-  dct:language "protoroman"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "protoroman"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='lt.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
@@ -32,50 +32,50 @@ wenn nichts von alledem: Abkürzung von DEAF/DAG umgesetzt als Zeichenkette ohne
 <xsl:when test="./@language='lt.cl.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_ltcl a ontolex:LexicalEntry ;
-  dct:language "latin classique"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "latin classique"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='lt.tard.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_lttard a ontolex:LexicalEntry ;
-  dct:language "latin tardif"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "latin tardif"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='lt.vulg.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_ltvulg a ontolex:LexicalEntry ;
-  dct:language "latin vulgaire"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "latin vulgaire"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='lt.chrét.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_ltchret a ontolex:LexicalEntry ;
-  dct:language "latin chrétien"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "latin chrétien"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='gallorom.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_gallorom a ontolex:LexicalEntry ;
-  dct:language "galloroman"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "galloroman"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='mlt.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_mlt a ontolex:LexicalEntry ;
-  dct:language "moyen latin"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "moyen latin"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='anglolt.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_anglolt a ontolex:LexicalEntry ;
-  dct:language "anglo-latin"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "anglo-latin"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='gallolt.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_gallolt a ontolex:LexicalEntry ;
-  dct:language "gallo-latin"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "gallo-latin"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='celt.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
@@ -120,14 +120,14 @@ wenn nichts von alledem: Abkürzung von DEAF/DAG umgesetzt als Zeichenkette ohne
 <xsl:when test="./@language='airl.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_airl a ontolex:LexicalEntry ;
-  dct:language "ancien irlandais"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "ancien irlandais"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='mirl.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_mirl a ontolex:LexicalEntry ;
-  dct:language "moyen irlandais"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "moyen irlandais"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='germ.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
@@ -196,14 +196,14 @@ wenn nichts von alledem: Abkürzung von DEAF/DAG umgesetzt als Zeichenkette ohne
 <xsl:when test="./@language='frq.rhén.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_frqrhen a ontolex:LexicalEntry ;
-  dct:language "francique rhénan"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "francique rhénan"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='Rhénanie'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_frqrhen a ontolex:LexicalEntry ;
-  dct:language "Rhénanie"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "Rhénanie"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='frq.orient.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
@@ -220,8 +220,8 @@ wenn nichts von alledem: Abkürzung von DEAF/DAG umgesetzt als Zeichenkette ohne
 <xsl:when test="./@language='suisse além.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_suissealeman a ontolex:LexicalEntry ;
-  dct:language "suisse alémanique"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "suisse alémanique"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='aha.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
@@ -246,20 +246,20 @@ wenn nichts von alledem: Abkürzung von DEAF/DAG umgesetzt als Zeichenkette ohne
 <xsl:when test="./@language='all.lorr.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_alllorr a ontolex:LexicalEntry ;
-  dct:language "allemand lorrain"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "allemand lorrain"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='als.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_als a ontolex:LexicalEntry ;
-  dct:language "alsacien"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "alsacien"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='hess.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_hess a ontolex:LexicalEntry ;
-  dct:language "hessois"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "hessois"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='pal.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
@@ -282,14 +282,14 @@ wenn nichts von alledem: Abkürzung von DEAF/DAG umgesetzt als Zeichenkette ohne
 <xsl:when test="./@language='afrb.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_afrb a ontolex:LexicalEntry ;
-  dct:language "ancien fribourgeois"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "ancien fribourgeois"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='lgb.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_lgb a ontolex:LexicalEntry ;
-  dct:language "longobard"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "longobard"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='got.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
@@ -306,8 +306,8 @@ wenn nichts von alledem: Abkürzung von DEAF/DAG umgesetzt als Zeichenkette ohne
 <xsl:when test="./@language='aouestnord.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_aouestnord a ontolex:LexicalEntry ;
-  dct:language "ancien ouest-nordique"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "ancien ouest-nordique"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='isl.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
@@ -364,8 +364,8 @@ wenn nichts von alledem: Abkürzung von DEAF/DAG umgesetzt als Zeichenkette ohne
 <xsl:when test="./@language='fris.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_fris a ontolex:LexicalEntry ;
-  dct:language "frison"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "frison"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='afris.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
@@ -488,20 +488,20 @@ wenn nichts von alledem: Abkürzung von DEAF/DAG umgesetzt als Zeichenkette ohne
 <xsl:when test="./@language='avér.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_aver a ontolex:LexicalEntry ;
-  dct:language "avéronnais"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "avéronnais"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='auv.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_auv a ontolex:LexicalEntry ;
-  dct:language "auvergnat"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "auvergnat"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='lang.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_lang a ontolex:LexicalEntry ;
-  dct:language "languedocien"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "languedocien"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='frpr.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
@@ -512,14 +512,14 @@ wenn nichts von alledem: Abkürzung von DEAF/DAG umgesetzt als Zeichenkette ohne
 <xsl:when test="./@language='lyon.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_lyon a ontolex:LexicalEntry ;
-  dct:language "lyonnais"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "lyonnais"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='dauph.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_dauph a ontolex:LexicalEntry ;
-  dct:language "dauphinois"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "dauphinois"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='port.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
@@ -551,8 +551,8 @@ wenn nichts von alledem: Abkürzung von DEAF/DAG umgesetzt als Zeichenkette ohne
 <xsl:when test="./@language='judéocat.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_judeocat a ontolex:LexicalEntry ;
-  dct:language "judéo catalan"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "judéo catalan"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='mozar.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
@@ -569,8 +569,8 @@ wenn nichts von alledem: Abkürzung von DEAF/DAG umgesetzt als Zeichenkette ohne
 <xsl:when test="./@language='nav.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_nav a ontolex:LexicalEntry ;
-  dct:language "navarrois"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "navarrois"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='arag.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
@@ -589,8 +589,8 @@ wenn nichts von alledem: Abkürzung von DEAF/DAG umgesetzt als Zeichenkette ohne
 <xsl:when test="./@language='milan.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_milan a ontolex:LexicalEntry ;
-  dct:language "milanais"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "milanais"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='sard.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
@@ -602,14 +602,14 @@ wenn nichts von alledem: Abkürzung von DEAF/DAG umgesetzt als Zeichenkette ohne
 <xsl:when test="./@language='logoud.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_logoud a ontolex:LexicalEntry ;
-  dct:language "logoudorien"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "logoudorien"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='aost.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_aost a ontolex:LexicalEntry ;
-  dct:language "aostais"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "aostais"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='piém.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
@@ -627,8 +627,8 @@ wenn nichts von alledem: Abkürzung von DEAF/DAG umgesetzt als Zeichenkette ohne
 <xsl:when test="./@language='hit.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_hit a ontolex:LexicalEntry ;
-  dct:language "haut-italien"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "haut-italien"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='lomb.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
@@ -651,14 +651,14 @@ wenn nichts von alledem: Abkürzung von DEAF/DAG umgesetzt als Zeichenkette ohne
 <xsl:when test="./@language='tosc.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_tosc a ontolex:LexicalEntry ;
-  dct:language "toscan"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "toscan"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='sien.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_sien a ontolex:LexicalEntry ;
-  dct:language "siennois"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "siennois"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='cors.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
@@ -676,26 +676,26 @@ wenn nichts von alledem: Abkürzung von DEAF/DAG umgesetzt als Zeichenkette ohne
 <xsl:when test="./@language='rom.alp.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_romalp a ontolex:LexicalEntry ;
-  dct:language "roman alpin"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "roman alpin"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='cal.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_cal a ontolex:LexicalEntry ;
-  dct:language "calabrais"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "calabrais"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='sursilv.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_sursilv a ontolex:LexicalEntry ;
-  dct:language "sursilvain"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "sursilvain"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='subsilv.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_subsilv a ontolex:LexicalEntry ;
-  dct:language "subsilvain"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "subsilvain"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='lad.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
@@ -712,26 +712,26 @@ wenn nichts von alledem: Abkürzung von DEAF/DAG umgesetzt als Zeichenkette ohne
 <xsl:when test="./@language='eng.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_eng a ontolex:LexicalEntry ;
-  dct:language "engadinois"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "engadinois"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='heng.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_heng a ontolex:LexicalEntry ;
-  dct:language "haut-engadinois"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "haut-engadinois"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='beng.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_beng a ontolex:LexicalEntry ;
-  dct:language "bas-engadinois"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "bas-engadinois"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='rhétorom.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_rhetorom a ontolex:LexicalEntry ;
-  dct:language "rhétoroman"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "rhétoroman"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='dalm.'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
@@ -749,8 +749,8 @@ wenn nichts von alledem: Abkürzung von DEAF/DAG umgesetzt als Zeichenkette ohne
 <xsl:when test="./@language='Oïl'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
   <xsl:if test="not(position() eq last())">_</xsl:if></xsl:for-each>_oil a ontolex:LexicalEntry ;
-  dct:language "langue d'oïl"@fr , lexvo:??? ;
-  rdfs:label "<xsl:value-of select="."/>"@??? ;
+  dct:language "langue d'oïl"@fr , lexvo:unassigned ;
+  rdfs:label "<xsl:value-of select="."/>"@unassigned ;
   lemonety:isCognateOf <xsl:choose><xsl:when test="../../..[@type='mainpart']">:<xsl:value-of select="ancestor::part/title/lemma"/></xsl:when><xsl:otherwise><xsl:value-of select="$mainlemma_URI"/><xsl:value-of select="ancestor::part/title/lemma"/>></xsl:otherwise></xsl:choose></xsl:when>
 <xsl:when test="./@language='russe'">dag:<xsl:for-each select="tokenize(.,' ')">
   <xsl:sequence select="replace(replace(replace(replace(., $single_quote, '_'), '^\*', 'asterisk_'), '\(|\)|\+|-|,', ''), '/', '_')"/>
