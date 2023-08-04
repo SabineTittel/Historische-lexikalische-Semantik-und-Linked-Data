@@ -3,7 +3,7 @@ import json
 import rdflib
 import re
 from data_poc import data_poc
-from blacklist import blacklist
+from nolist import nolist
 from rdflib import URIRef, Literal
 from rdflib.namespace import Namespace
 
@@ -76,7 +76,7 @@ linne_cap_single_unobvious = re.compile(r'([A-Z]\w+)')
 last_word = re.compile(r'(\,[^\,\r\n]|\;[^\,\r\n])(\w+\ ?\w+)(\ et sim.|,\ et sim.){0,1}(\??)(\ \(\?\))?$')
 
 # find keyword after 'sorte de' / 'sorte d'' and 'espèce de' / 'espèce d'' resp.;
-# blacklist: grand, grande, petit, petite, gros, grosse
+# nolist: grand, grande, petit, petite, gros, grosse
 sorte = "sorte de"
 sorte_apostr = "sorte d'"
 espece = "espèce de"
@@ -167,7 +167,7 @@ def map_rdf(graph):
 
             if (re.findall('\w+', o)):
                 for word in (re.findall('\w+', o)):
-                    if word not in blacklist:
+                    if word not in nolist:
                         page_py = wiki_wiki.page(word)
                         if page_py.exists():
                             make_langlinks(s, page_py)
